@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Community Rent-a-Bike</title>
+
+    <!--
+        Community Rent-A-Bike,Home Page
+        Filename: index.html
+
+        Author: James Whitton
+        Date: 1/29/2022
+    -->
+
+    <link type="text/css" rel="stylesheet" href="../CSS/styles.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Community Rent-a-Bike">
+</head>
+<body onload="moveText">
+
+
+    <script>
+        //create a canvas for moving text
+        var canvas = document.createElement("canvas");
+        var context = canvas.getContext("2d");
+
+        canvas.width = 1900;
+        canvas.height = 50;
+
+        document.body.appendChild(canvas);
+
+        context.fillStyle = "#04AA6D";
+
+      
+          onload="moveText"
+        var posX = 200;
+        var posY = 200;
+        dx = 1;  //creates movement for text
+        dy = 0;
+
+        setInterval(function moveText() {
+            context.fillStyle = "#04AA6D";
+
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            posX += dx;
+            posY += dy;
+
+            if (posX >= canvas.width) {
+                dx = 0;
+                posX = canvas.width;
+            }
+            if (posX < 0) {
+                dx = 0;
+                posX = 0;
+            }
+            if (posY > canvas.height) {
+                dy = 0;
+                posY = canvas.height;
+            }
+            if (posY < 0) {
+                dy = 0;
+                posY = 0;
+            }
+
+            context.fillStyle = "white";
+            context.font = "bold 26px Calibri";
+            context.fillText("Call Us today at 517-555-5392", posX, posY);
+
+
+        }, 20)
+        
+
+    </script>
+    <div id="header">
+
+    </div>
+    <div style="clear:both;"></div>
+
+
+    <!-- main navigation menu-->
+    <!--changed name to topnav instead of mainnav 2-2-2022-->
+    <!-- <nav id="topnav">
+         <ul>
+             <li><a href="index.html">Home</a></li>
+             <li><a href="pricing.html">Pricing</a></li>
+             <li><a href="rentabike.html">Rent a Bike</a></li>
+             <li><a href="contact.html">Contact Us</a></li>
+         </ul>
+     </nav>-->
+
+    <div class="topnav">
+        <a class="active" href="index.html">Home</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="rentabike.html">Rent a Bike</a>
+
+        <!-- Updated html reference -->
+        <a href="contact.html">Contact Us</a>
+
+    </div>
+
+
+
+    <div style="clear:both;"></div>
+    <div id="header2">
+        <h2>Welcome to Community Rent-a-Bike</h2>
+        <img src="../Images/beachBikePic.jpg" alt="logo" width="700" height="313"><br />
+    </div>
+
+    <div style="clear:both;"></div>
+
+
+    <!--brief description of what the website is about-->
+
+    <div class="column">
+        <div class="container">
+            <!--updated resources path -->
+
+
+            <div id="description">
+                <p>
+                    Hi there! If you're looking for a quality, affordable bicycle to rent, then you are at the right place.<br />
+                    Since 2010, we have been providing quality customer service and enjoyable riding experiences for the general public.<br />
+                    Check out our pricing and bike rental options today.<br />
+                    We look forward to hearing from you!<br />
+                </p>
+
+            </div>
+            <div class="overlay">
+
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+    </div>
+
+    <script src="modernizr.custom.05819.js"></script>
+    <script src="../JavaScript/script.js"></script>
+
+
+</body>
+</html>
