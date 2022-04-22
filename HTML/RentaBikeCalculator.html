@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link type="text/css" rel="stylesheet" href="../CSS/styles.css">
+<script src="../JavaScript/modernizr.custom.05819.js"></script>
+<header>
+</header>
+<body>
+    <div id="headerJ" style="font-size: 30px; font-family: arvo, Calibri, Tahoma; color: white; text-align:center; padding-top: 15px;">Price Quote Calculator </div>
+
+
+    <table class="calculator" align="center">
+        <tr>
+            <td>
+                <label for="numBikes">Enter Number of Bikes:</label><br>
+                <input type="number" id="num" name="num" min="1" max="120" value="" <!--onchange="multiplyBikes()-->"><br>
+            </td>
+        </tr>
+        <br>
+
+        <tr>
+            <td>
+                <label for="Hrs1">Enter Number of Hours You Will Be Renting:</label><br>
+                <input type="number" id="Hrs1" name="Hrs1" min="1" max="168" value="" <!--onchange="multiplyBikes()-->"><br>
+            </td>
+        </tr>
+        <br>
+
+        <tr>
+            <td>
+                <label for="kind">Enter What Kind of Bike You Will Be Renting:</label><br>
+                    <select name="kind" id="kind">
+                        <option value=""selected disabled>Select a type of bike</option>
+                        <option value="22">performance-bike ($22/hr)</option>
+						<option value="29">Kids ($29/hr)</option>
+                        <option value="30">road-bike ($30/hr)</option>
+                        <option value="32">Tandem-bike ($32/hr)</option>
+                    </select> <br>
+            </td>
+        </tr>
+     
+        <tr>
+            <td>
+
+                <button type="button" name="button" id="submitBikeCalculationButton" onclick="MyFunction(), alert('Your calculation has been saved successfully. Now just press DISPLAY CALCULATIONS')">Submit</button>
+                <button type="button" id="displayCalcButton" onclick="displayRecord();">Display Calculations</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <textarea readonly typeof="text" id="directionsForUser">Please enter your data then click submit to save and perform the calculation. 
+
+Then click display to see calculcation history and compare prices.
+
+You can submit and display multiple combinations of bikes, hours and kinds to get different pricing quotes.
+</textarea>
+            </td>
+        </tr>
+
+
+    </table>
+
+
+    <br>
+    <h3 style="font-family: arvo, Calibri, Tahoma; font-weight: bold;">Output
+        
+    </h3>
+    <p id="par" style="font-family: arvo, Calibri, Tahoma;"></p>
+
+    <script type="text/javascript">
+
+
+        myFormData = [];
+        function MyFunction() {
+
+            var t = "The Cost of ";
+            var b = "Bike(s) ";
+            var h = "Hour(s) ";
+            var q = " $";
+            var s = " ";
+            var input = document.getElementsByName('array');
+            var n = document.getElementById("num");
+            var d = document.getElementById("Hrs1");
+            var k = document.getElementById("kind");
+        
+            var bikeType;
+            if (k.value == 29) {
+                bikeType = "Kids";
+            }
+            else if (k.value == 32) {
+                bikeType = "Tandem";
+            }
+            else if (k.value == 30) {
+                bikeType = "Road";
+            }
+            else if 
+                (k.value == 22) {
+                bikeType = "Performance";
+            }
+            
+
+ 
+            var Cost = n.value * d.value * k.value;
+
+            s = t + (n.value) + " " + (bikeType) + " " + b + " for " + (d.value) + " " + h + "at the price of $" + (k.value) + " per hour is " + q + Cost;
+
+            myFormData.push(s);
+            //displayRecord();
+            d.value = "";
+            n.value = "";
+            k.value = "";
+
+        }
+
+        function displayRecord() {
+
+            let txt = "";
+
+            //THIS IS OUR forEach LOOP
+            myFormData.forEach(myFunction);
+            document.getElementById("par").innerHTML = txt;
+
+            function myFunction(value, index, array) {
+                txt += value + "<br>";
+            }
+
+
+
+        }
+
+
+    </script>
+
+ 
+    <div id="footer"> </div>
+</body>
+</html>
+
